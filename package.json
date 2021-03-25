@@ -1,0 +1,24 @@
+{
+  "name": "JunqiYe.github.io",
+  "version": "1.0.0",
+  "description": "You can use the [editor on GitHub](https://github.com/JunqiYe/JunqiYe.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JunqiYe/JunqiYe.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JunqiYe/JunqiYe.github.io/issues"
+  },
+  "homepage": "https://github.com/JunqiYe/JunqiYe.github.io#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}
