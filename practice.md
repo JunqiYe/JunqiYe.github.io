@@ -115,3 +115,79 @@ def arrayManipulation(n, queries):
 ```
 Reflection
 this was very similar to unit step function and the final approach was similar too. The challenge for this is the time restrain. Original approch was to use (a,b) to indicate range and a map to store the k value. Clearly was way more complicated than this approach.
+
+
+
+### isPrime()
+
+My solution:
+The solution is based on Sieve of Eratosthenes. Basiclly, we work from 0 and to the number limit. The starting prime numbers are 2, 3, 5, 7 and all multiple of the number are not prime. In this algorithm, we create an empty array with predefined value. If the number is prime and we have not enouter it before, all the multiple of this number is not prime and we mark it in the inner loop. Finally, we loop the entire array again to sum the result.
+Runtime is O(N log log N). 
+Note: the limit of the array is sqrt(n) b/c 3 * 6 == 6 * 3 == 18 therefore the max is sqrt(18)
+https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+```
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        matrix = [False for i in range(n)]
+        
+        for i in range(2, n): # this can be sqrt(n) because number repeates after sqrt(n)
+            if not matrix[i]:
+                for j in range(i*i, n, i):
+                       matrix[j] = True
+                
+        count = 0
+        for i in range(2, len(matrix)):
+            if not matrix[i]:
+                count+=1
+        return count
+```
+
+```
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        #The Sieve of Eratosthenes, which marks all multiples of primes as composite. I.E. 2*2 is composite since 4 is divisible by 2 and therefore not prime
+        if n < 3:
+            return 0
+        primes = [True] * n
+        primes[0] = primes[1] = False
+        for i in range(2, int(n ** 0.5) + 1):
+            if primes[i]:
+                primes[i * i: n: i] = [False] * len(primes[i * i: n: i]) #Starting from i*i, Up to n, With step i
+        return sum(primes)
+```
+Reflection:
+I think this is a good algorithm to keep in mind since I have seen this before. Good to review every once a while.
+
+
+### Python Notes
+
+```
+casting:
+
+str()
+int()
+float()
+
+List:
+list = []
+
+list.append(a) #add to the end
+list.insert(index, item) # add item to the index 
+list.index(item) # finding the index of an item
+
+list.pop([index]) # remove last item, optional: remove at the index
+or
+del list[1] # delete at certain index, can also del list entirely
+or
+list.clear() # remove all items
+
+list comprehensive
+newlist = [expression for item in iterable if condition == True]
+
+s = {} # set
+d = {} # dict
+s = set(list) # convert list to set, useful for checking repeat
+
+
+
+```
